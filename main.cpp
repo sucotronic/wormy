@@ -1,20 +1,20 @@
 /*
- * Sifteo SDK Example.
+ * Wormy game prototype
  */
 
 #include <sifteo.h>
 #include "assets.gen.h"
 using namespace Sifteo;
 
-static const unsigned gNumCubes = 3;
+static const unsigned gNumCubes = 1;
 Random gRandom;
 
 static AssetSlot MainSlot = AssetSlot::allocate()
     .bootstrap(GameAssets);
 
 static Metadata M = Metadata()
-    .title("Stars SDK Example")
-    .package("com.sifteo.sdk.stars", "1.0")
+    .title("Wormy")
+    .package("sucotronic.wormy", "0.5")
     .icon(Icon)
     .cubeRange(gNumCubes);
 
@@ -57,7 +57,7 @@ public:
         
         switch (frame) {
         
-        case 0:
+       /* case 0:
             text.set(0, -20);
             textTarget = text;
             break;
@@ -97,7 +97,7 @@ public:
 
         case 650:
             textTarget.y = -20;
-            break;
+            break;*/
         
         case 800: {
             text.set(-4, 128);
@@ -118,10 +118,10 @@ public:
             break;
         }
         
-        case 900:
+      /*  case 900:
             textTarget.y = 128;
             break;
-            
+      */      
         case 2048:
             frame = 0;
             fpsTimespan = 0;
@@ -196,9 +196,7 @@ void main()
 {
     static StarDemo instances[gNumCubes];
 
-    AudioTracker::play(Music);
-
-    for (unsigned i = 0; i < arraysize(instances); i++)
+	for (unsigned i = 0; i < arraysize(instances); i++)
         instances[i].init(i);
     
     TimeStep ts;
